@@ -3,39 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interview Feedback Portal</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>5-Minute AI</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            background: linear-gradient(135deg, #e3f2fd, #90caf9); /* White to Blue Gradient */
+            color: #003366; /* Deep Blue Text */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            display: flex;
+            gap: 20px;
+            font-size: 1em;
+        }
+
+        .navbar a {
+            color: #003366; /* Deep Blue Links */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        .navbar a:hover {
+            color: #1976d2; /* Light Blue Hover Effect */
+            transform: scale(1.1); /* Slight zoom effect */
+        }
+
+        /* Main Header Section */
+        header {
+            font-size: 2.8em;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+            color: #002244; /* Dark Blue Header */
+        }
+
+        /* Subheader Section */
+        .subheader {
+            font-size: 1.8em;
+            color: #0056b3; /* Medium Blue Subheader */
+            margin-bottom: 1em;
+        }
+
+        /* Description Section */
+        .description {
+            font-size: 1.1em;
+            color: #003366; /* Deep Blue Text */
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 2em;
+        }
+
+        /* Buttons Section */
+        .buttons {
+            display: flex;
+            gap: 1em;
+        }
+
+        .button {
+            background-color: #1976d2; /* Light Blue Button */
+            color: #ffffff; /* White Text */
+            padding: 0.8em 2em;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0d47a1; /* Darker Blue on Hover */
+            transform: translateY(-3px);
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Mock Interview Feedback Portal</h1>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="/overview.html" class="button">overview</a>
+        
+        <a href="/feature.html" class="button">feature</a>
+        <a href="/about.html" class="button">about</a>
+    </nav>
 
-        <div class="main-content">
-            <!-- Video Recorder -->
-            <div class="video-section">
-                <video id="video" autoplay></video>
-                <button id="startRecording" class="btn">Start Recording</button>
-                <button id="stopRecording" class="btn" disabled>Stop Recording</button>
-                <p id="recording-status"></p>
-            </div>
+    <!-- Header Section -->
+    <header>Smart Interview Analysis🧑🏻‍💻</header>
+    <div class="subheader">Video Interviews</div>
 
-            <!-- Questions Panel -->
-            <div class="questions-panel">
-                <h2>Interview Questions</h2>
-                <div id="questions-container">
-                    <p id="current-question">Press Start Recording to begin answering questions.</p>
-                </div>
-            </div>
-        </div>
+    <!-- Description Section -->
+    <p class="description">
+        Your hiring, reimagined. Your future, accelerated.
+    </p>
 
-        <!-- Feedback Form -->
-        <div class="feedback-section">
-            <h2>Feedback Module</h2>
-            <textarea id="feedback" placeholder="Provide feedback about the interview here..."></textarea>
-            <button id="submitFeedback" class="btn">Submit Feedback</button>
-        </div>
+    <!-- Buttons Section -->
+    <!-- <div class="buttons">
+        <a href="#" class="button">Generate Interview</a>
+    </div> -->
+    <div class="buttons">
+        <a href="/index3.html" class="button">Generate Interview</a>
+
     </div>
-
-    <script src="script.js"></script>
+    
 </body>
 </html>

@@ -1,16 +1,26 @@
 let mediaRecorder;
 let recordedChunks = [];
 let questionIndex = 0;
+let currentQuestionSet = [];
 
-// Questions Array
-const questions = [
-    "Tell us about yourself.",
-    "Why do you want to work with us?",
+// Default Interview Questions
+const defaultQuestions = [
+    // "Tell us about yourself.",
+    // "Why do you want to work with us?",
     "What are your strengths and weaknesses?",
     "Where do you see yourself in five years?",
     "How do you handle stressful situations?",
-    "What is your greatest achievement?",
-    "Describe a challenging project you worked on.",
+];
+
+// MERN Stack Questions
+const mernQuestions = [
+    // "What is the MERN stack?",
+    "Explain the role of MongoDB in the MERN stack.",
+    "How does Express.js differ from other backend frameworks?",
+    "Can you explain the virtual DOM in React?",
+    "How do you manage state in a React application?",
+    "What is the role of Node.js in the MERN stack?",
+    "What are some best practices for building a RESTful API?",
 ];
 
 // DOM Elements
@@ -18,9 +28,8 @@ const video = document.getElementById('video');
 const startRecordingButton = document.getElementById('startRecording');
 const stopRecordingButton = document.getElementById('stopRecording');
 const recordingStatus = document.getElementById('recording-status');
-const feedbackTextarea = document.getElementById('feedback');
-const submitFeedbackButton = document.getElementById('submitFeedback');
 const questionsContainer = document.getElementById('current-question');
+const showMERNQuestionsButton = document.getElementById('showMERNQuestions');
 
 // Request access to user's webcam
 navigator.mediaDevices.getUserMedia({ video: true, audio: true })
@@ -62,7 +71,9 @@ startRecordingButton.addEventListener('click', () => {
     startRecordingButton.disabled = true;
     stopRecordingButton.disabled = false;
 
-    // Start showing questions
+    // Start showing default questions
+    currentQuestionSet = defaultQuestions;
+    questionIndex = 0;
     showNextQuestion();
 });
 
@@ -74,25 +85,21 @@ stopRecordingButton.addEventListener('click', () => {
     stopRecordingButton.disabled = true;
 });
 
+// Show MERN Questions
+showMERNQuestionsButton.addEventListener('click', () => {
+    currentQuestionSet = mernQuestions;
+    questionIndex = 0;
+    showNextQuestion();
+});
+
 // Show Next Question
 function showNextQuestion() {
-    if (questionIndex < questions.length) {
-        questionsContainer.textContent = questions[questionIndex];
+    if (questionIndex < currentQuestionSet.length) {
+        questionsContainer.textContent = currentQuestionSet[questionIndex];
         questionIndex++;
-        setTimeout(showNextQuestion, 15000); // Show each question for 15 seconds
-    } else {
-        questionsContainer.textContent = "All questions completed!";
-    }
+        setTimeout(showNextQuestion, 30000); // Show each question for 15 seconds
+    } 
+    // else {
+    //     questionsContainer.textContent = "All questions completed!";
+    // }
 }
-
-// Submit Feedback
-submitFeedbackButton.addEventListener('click', () => {
-    const feedback = feedbackTextarea.value.trim();
-    if (feedback) {
-        console.log("Feedback Submitted:", feedback);
-        alert("Thank you for your feedback!");
-        feedbackTextarea.value = '';
-    } else {
-        alert("Please write feedback before submitting.");
-    }
-});
